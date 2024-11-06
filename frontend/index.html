@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Admin Dashboard</h1>
+        <nav>
+            <button onclick="showSection('analytics')">Analytics</button>
+            <button onclick="showSection('data-tables')">Data Tables</button>
+        </nav>
+    </header>
+
+    <!-- Analytics Section -->
+    <div id="analytics" class="section active">
+        <h2>Analytics Overview</h2>
+        <div class="metrics">
+            <div class="metric" id="total-customers">Total Customers: <span></span></div>
+            <div class="metric" id="total-sales">Total Sales: <span></span></div>
+            <div class="metric" id="total-revenue">Total Revenue: $<span></span></div>
+            <div class="metric" id="average-order-value">Average Order Value: $<span></span></div>
+        </div>
+
+        <h2>Sales by Category</h2>
+        <canvas id="salesByCategoryChart"></canvas>
+
+        <h2>Revenue Chart</h2>
+        <canvas id="revenueChart"></canvas>
+
+
+        <!-- Sales Trend (Monthly) -->
+        <h2>Sales Trend (Monthly)</h2>
+        <canvas id="salesTrendChart"></canvas>
+
+
+        <!-- Top 10 Customers by Revenue -->
+        <h2>Top 10 Customers by Revenue</h2>
+        <table id="top-customers-by-revenue">
+            <thead>
+            <tr><th>Customer Name</th><th>Total Revenue</th></tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <!-- Top 10 Products by Sales -->
+        <h2>Top 10 Products by Sales</h2>
+        <table id="top-products-by-sales">
+            <thead>
+            <tr><th>Product Name</th><th>Total Quantity Sold</th><th>Total Revenue</th></tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+
+        <!-- Sales by Product -->
+        <h2>Sales by Product</h2>
+        <table id="sales-by-product">
+            <thead>
+            <tr><th>Product Name</th><th>Total Quantity Sold</th><th>Total Revenue</th></tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+
+    </div>
+
+    <!-- Data Tables Section -->
+    <div id="data-tables" class="section">
+        <h4>Data Tables</h4>
+
+
+        <!-- Customers Table -->
+        <h4>All Customers</h4>
+        <table id="customers-table">
+            <thead>
+            <tr><th>Name</th><th>Email</th><th>Phone</th><th>City</th></tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div class="pagination">
+            <button onclick="prevPage('customers')">Previous</button>
+            <button onclick="nextPage('customers')">Next</button>
+        </div>
+
+        <!-- Sales Table -->
+        <h54>All Sales</h54>
+        <table id="sales-table">
+            <thead>
+            <tr><th>Sale ID</th><th>Product ID</th><th>Customer ID</th><th>Sale Date</th><th>Quantity</th><th>Total Amount</th></tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div class="pagination">
+            <button onclick="prevPage('sales')">Previous</button>
+            <button onclick="nextPage('sales')">Next</button>
+        </div>
+
+        <!-- Products Table -->
+        <h4>All Products</h4>
+        <table id="products-data-table">
+            <thead>
+            <tr><th>Product Name</th><th>Price</th><th>Stock Quantity</th></tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div class="pagination">
+            <button onclick="prevPage('products')">Previous</button>
+            <button onclick="nextPage('products')">Next</button>
+        </div>
+    </div>
+</div>
+
+<!-- Include Chart.js for charts -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
